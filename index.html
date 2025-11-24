@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fas fa-layer-group"></i>
+          <span>Pulse</span>
+        </div>
+        <nav class="nav-menu">
+          <a href="#" class="nav-link active" data-page="dashboard">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="nav-link" data-page="feed">
+            <i class="fas fa-stream"></i>
+            <span>Feed</span>
+          </a>
+          <a href="#" class="nav-link" data-page="analytics">
+            <i class="fas fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+          <a href="#" class="nav-link" data-page="messages">
+            <i class="fas fa-envelope"></i>
+            <span>Messages</span>
+            <span class="badge">3</span>
+          </a>
+          <a href="#" class="nav-link" data-page="profile">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="#" class="nav-link" data-page="settings">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+        <div class="user-mini-profile">
+          <img
+            src="https://ui-avatars.com/api/?name=Alex+Doe&background=6366f1&color=fff"
+            alt="User Avatar"
+          />
+          <div class="user-info">
+            <h4>Alex Doe</h4>
+            <p>@alexdoe</p>
+          </div>
+          <i class="fas fa-sign-out-alt logout-btn"></i>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Search for posts, trends, or users..."
+            />
+          </div>
+          <div class="header-actions">
+            <button class="icon-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-dot"></span>
+            </button>
+            <button class="create-btn">
+              <i class="fas fa-plus"></i> New Post
+            </button>
+          </div>
+        </header>
+
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-section active">
+          <div class="overview-cards">
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(99, 102, 241, 0.1); color: #6366f1"
+              >
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Total Reach</h3>
+                <p class="stat-value">125.4k</p>
+                <p class="stat-change positive">
+                  <i class="fas fa-arrow-up"></i> 12%
+                </p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(236, 72, 153, 0.1); color: #ec4899"
+              >
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Engagement</h3>
+                <p class="stat-value">8.2k</p>
+                <p class="stat-change positive">
+                  <i class="fas fa-arrow-up"></i> 5.4%
+                </p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
+              >
+                <i class="fas fa-share-alt"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Shares</h3>
+                <p class="stat-value">3.4k</p>
+                <p class="stat-change negative">
+                  <i class="fas fa-arrow-down"></i> 1.2%
+                </p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(245, 158, 11, 0.1); color: #f59e0b"
+              >
+                <i class="fas fa-comment"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Comments</h3>
+                <p class="stat-value">1.8k</p>
+                <p class="stat-change positive">
+                  <i class="fas fa-arrow-up"></i> 8.1%
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <!-- Feed Section -->
+            <div class="feed-section">
+              <div class="section-header">
+                <h2>Recent Activity</h2>
+                <div class="filter-tabs">
+                  <button class="tab active">All</button>
+                  <button class="tab">Posts</button>
+                  <button class="tab">Mentions</button>
+                </div>
+              </div>
+              <div id="feed-container" class="feed-container">
+                <!-- Posts will be injected here by JS -->
+              </div>
+            </div>
+
+            <!-- Trends Section -->
+            <aside class="trends-section">
+              <div class="card trends-card">
+                <h3>Trending Topics</h3>
+                <ul class="trends-list">
+                  <li>
+                    <span class="trend-rank">#1</span>
+                    <div class="trend-info">
+                      <h4>Technology</h4>
+                      <p>12.5k posts</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="trend-rank">#2</span>
+                    <div class="trend-info">
+                      <h4>Design Systems</h4>
+                      <p>8.2k posts</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="trend-rank">#3</span>
+                    <div class="trend-info">
+                      <h4>AI Revolution</h4>
+                      <p>6.4k posts</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="trend-rank">#4</span>
+                    <div class="trend-info">
+                      <h4>Remote Work</h4>
+                      <p>5.1k posts</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card suggestions-card">
+                <h3>Who to Follow</h3>
+                <div id="suggestions-container">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <div class="logo">
+          <i class="fas fa-layer-group"></i>
+          <span>Pulse</span>
+        </div>
+        <nav class="nav-menu">
+          <a href="#" class="nav-link active" data-page="dashboard">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="nav-link" data-page="feed">
+            <i class="fas fa-stream"></i>
+            <span>Feed</span>
+          </a>
+          <a href="#" class="nav-link" data-page="analytics">
+            <i class="fas fa-chart-line"></i>
+            <span>Analytics</span>
+          </a>
+          <a href="#" class="nav-link" data-page="messages">
+            <i class="fas fa-envelope"></i>
+            <span>Messages</span>
+            <span class="badge">3</span>
+          </a>
+          <a href="#" class="nav-link" data-page="profile">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+          </a>
+          <a href="#" class="nav-link" data-page="settings">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+        <div class="user-mini-profile">
+          <img
+            src="https://ui-avatars.com/api/?name=Alex+Doe&background=6366f1&color=fff"
+            alt="User Avatar"
+          />
+          <div class="user-info">
+            <h4>Alex Doe</h4>
+            <p>@alexdoe</p>
+          </div>
+          <i class="fas fa-sign-out-alt logout-btn"></i>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Search for posts, trends, or users..."
+            />
+          </div>
+          <div class="header-actions">
+            <button class="icon-btn">
+              <i class="fas fa-bell"></i>
+              <span class="notification-dot"></span>
+            </button>
+            <button class="create-btn">
+              <i class="fas fa-plus"></i> New Post
+            </button>
+          </div>
+        </header>
+
+        <!-- Dashboard View -->
+        <div id="dashboard-view" class="view-section active">
+          <div class="overview-cards">
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(99, 102, 241, 0.1); color: #6366f1"
+              >
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Total Reach</h3>
+                <p class="stat-value">125.4k</p>
+                <p class="stat-change positive">
+                  <i class="fas fa-arrow-up"></i> 12%
+                </p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(236, 72, 153, 0.1); color: #ec4899"
+              >
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Engagement</h3>
+                <p class="stat-value">8.2k</p>
+                <p class="stat-change positive">
+                  <i class="fas fa-arrow-up"></i> 5.4%
+                </p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
+              >
+                <i class="fas fa-share-alt"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Shares</h3>
+                <p class="stat-value">3.4k</p>
+                <p class="stat-change negative">
+                  <i class="fas fa-arrow-down"></i> 1.2%
+                </p>
+              </div>
+            </div>
+            <div class="card stat-card">
+              <div
+                class="stat-icon"
+                style="background: rgba(245, 158, 11, 0.1); color: #f59e0b"
+              >
+                <i class="fas fa-comment"></i>
+              </div>
+              <div class="stat-info">
+                <h3>Comments</h3>
+                <p class="stat-value">1.8k</p>
+                <p class="stat-change positive">
+                  <i class="fas fa-arrow-up"></i> 8.1%
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="content-grid">
+            <!-- Feed Section -->
+            <div class="feed-section">
+              <div class="section-header">
+                <h2>Recent Activity</h2>
+                <div class="filter-tabs">
+                  <button class="tab active">All</button>
+                  <button class="tab">Posts</button>
+                  <button class="tab">Mentions</button>
+                </div>
+              </div>
+              <div id="feed-container" class="feed-container">
+                <!-- Posts will be injected here by JS -->
+              </div>
+            </div>
+
+            <!-- Trends Section -->
+            <aside class="trends-section">
+              <div class="card trends-card">
+                <h3>Trending Topics</h3>
+                <ul class="trends-list">
+                  <li>
+                    <span class="trend-rank">#1</span>
+                    <div class="trend-info">
+                      <h4>Technology</h4>
+                      <p>12.5k posts</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="trend-rank">#2</span>
+                    <div class="trend-info">
+                      <h4>Design Systems</h4>
+                      <p>8.2k posts</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="trend-rank">#3</span>
+                    <div class="trend-info">
+                      <h4>AI Revolution</h4>
+                      <p>6.4k posts</p>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="trend-rank">#4</span>
+                    <div class="trend-info">
+                      <h4>Remote Work</h4>
+                      <p>5.1k posts</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="card suggestions-card">
+                <h3>Who to Follow</h3>
+                <div id="suggestions-container">
+                  <!-- Suggestions injected by JS -->
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!-- Feed View -->
+        <div id="feed-view" class="view-section" style="display: none;">
+            <div class="feed-layout-full">
+                <div class="feed-main">
+                    <div class="create-post-card">
+                        <div class="create-input">
+                            <img src="https://ui-avatars.com/api/?name=Alex+Doe&background=6366f1&color=fff" alt="User">
+                            <input type="text" placeholder="What's on your mind, Alex?">
+                        </div>
+                        <div class="create-actions">
+                            <button class="action-btn"><i class="fas fa-image"></i> Photo</button>
+                            <button class="action-btn"><i class="fas fa-video"></i> Video</button>
+                            <button class="action-btn"><i class="fas fa-calendar-alt"></i> Event</button>
+                            <button class="post-btn-small">Post</button>
+                        </div>
+                    </div>
+                    <div id="full-feed-container">
+                        <!-- Posts injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analytics View -->
+        <div id="analytics-view" class="view-section" style="display: none;">
+            <div class="section-header">
+                <h2>Analytics Overview</h2>
+                <div class="date-filter">
+                    <select>
+                        <option>Last 7 Days</option>
+                        <option>Last 30 Days</option>
+                        <option>This Year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="analytics-grid">
+                <div class="card chart-card">
+                    <h3>Audience Growth</h3>
+                    <div class="chart-placeholder bar-chart">
+                        <div class="bar" style="height: 40%"></div>
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 45%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                        <div class="bar" style="height: 65%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="bar" style="height: 75%"></div>
+                    </div>
+                </div>
+                <div class="card chart-card">
+                    <h3>Engagement Rate</h3>
+                    <div class="chart-placeholder line-chart">
+                        <svg viewBox="0 0 100 50">
+                            <polyline points="0,40 20,35 40,20 60,25 80,10 100,15" fill="none" stroke="#6366f1" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages View -->
+        <div id="messages-view" class="view-section" style="display: none;">
+            <div class="messages-container">
+                <div class="messages-list">
+                    <div class="message-item active">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Smith&background=ec4899&color=fff" alt="Sarah">
+                        <div class="message-preview">
+                            <h4>Sarah Smith</h4>
+                            <p>Hey, did you see the new design?</p>
+                        </div>
+                        <span class="message-time">2m</span>
+                    </div>
+                    <div class="message-item">
+                        <img src="https://ui-avatars.com/api/?name=David+Chen&background=f59e0b&color=fff" alt="David">
+                        <div class="message-preview">
+                            <h4>David Chen</h4>
+                            <p>Let's catch up tomorrow!</p>
+                        </div>
+                        <span class="message-time">1h</span>
+                    </div>
+                </div>
+                <div class="message-chat">
+                    <div class="chat-header">
+                        <img src="https://ui-avatars.com/api/?name=Sarah+Smith&background=ec4899&color=fff" alt="Sarah">
+                        <h4>Sarah Smith</h4>
+                    </div>
+                    <div class="chat-body">
+                        <div class="msg received">Hey, did you see the new design?</div>
+                        <div class="msg sent">Yes! It looks amazing. Great work! 🚀</div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="Type a message...">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile View -->
+        <div id="profile-view" class="view-section" style="display: none;">
+            <div class="profile-header-card">
+                <div class="profile-cover"></div>
+                <div class="profile-info-large">
+                    <img src="https://ui-avatars.com/api/?name=Alex+Doe&background=6366f1&color=fff" alt="Alex" class="profile-avatar-large">
+                    <div class="profile-text">
+                        <h2>Alex Doe</h2>
+                        <p>@alexdoe • Product Designer & Developer</p>
+                        <div class="profile-stats">
+                            <span><strong>1.2k</strong> Posts</span>
+                            <span><strong>4.5k</strong> Followers</span>
+                            <span><strong>340</strong> Following</span>
+                        </div>
+                    </div>
+                    <button class="btn-edit-profile">Edit Profile</button>
+                </div>
+            </div>
+            <div class="profile-content">
+                <h3>Recent Posts</h3>
+                <div id="profile-posts-container">
+                    <!-- Profile posts injected by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings View -->
+        <div id="settings-view" class="view-section" style="display: none;">
+            <div class="settings-container">
+                <h2>Settings</h2>
+                <div class="card settings-card">
+                    <h3>Account</h3>
+                    <div class="setting-item">
+                        <label>Email Address</label>
+                        <input type="email" value="alex.doe@example.com">
+                    </div>
+                    <div class="setting-item">
+                        <label>Username</label>
+                        <input type="text" value="@alexdoe">
+                    </div>
+                </div>
+                <div class="card settings-card">
+                    <h3>Notifications</h3>
+                    <div class="setting-toggle">
+                        <span>Email Notifications</span>
+                        <input type="checkbox" checked>
+                    </div>
+                    <div class="setting-toggle">
+                        <span>Push Notifications</span>
+                        <input type="checkbox" checked>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
